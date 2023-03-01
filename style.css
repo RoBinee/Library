@@ -8,3 +8,12 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+/* popup: display none && popup show: display block */
+.popup {
+  background: pink;
+  display: none;
+}
+.popup.show {
+  display: block;
+}
