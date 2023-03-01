@@ -19,21 +19,20 @@ form.addEventListener('submit', (e) => {
   let read;
 
   inputs.forEach((input) => {
-    const inputValue = input.value;
     const inputId = input.id;
 
     switch (inputId) {
       case 'title':
-        title = inputValue;
+        title = input.value;
         break;
       case 'author':
-        author = inputValue;
+        author = input.value;
         break;
       case 'pages':
-        pages = inputValue;
+        pages = input.value;
         break;
       case 'read':
-        read = inputValue;
+        read = input.checked;
         break;
     }
   });
@@ -42,6 +41,15 @@ form.addEventListener('submit', (e) => {
   //   const testBook = new Book(title, author, pages, read);
   //   console.log(testBook);
   addBookToLibrary(title, author, pages, read);
+
+  //clear the inputs
+  inputs.forEach((input) => {
+    if (input.id === 'read') {
+      input.checked = false;
+    } else {
+      input.value = '';
+    }
+  });
 });
 
 // function
