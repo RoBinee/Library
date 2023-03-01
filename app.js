@@ -38,8 +38,6 @@ form.addEventListener('submit', (e) => {
   });
 
   //using inputs, make Book obj
-  //   const testBook = new Book(title, author, pages, read);
-  //   console.log(testBook);
   addBookToLibrary(title, author, pages, read);
 
   //clear the inputs
@@ -60,13 +58,6 @@ function Book(title, author, pages, read) {
 
 function addBookToLibrary(title, author, pages, read) {
   //--push book into myLibrary array--
-
-  //take user input using prompt
-  //  take title, author, pages, read
-  //   const title = prompt('title');
-  //   const author = prompt('author');
-  //   const pages = prompt('pages');
-  //   const read = prompt('read');
 
   //make input as Book obj
   const book = new Book(title, author, pages, read);
@@ -89,6 +80,8 @@ function displayAllBook() {
     test.appendChild(card);
   });
 }
+
+function displayEachBook() {}
 
 function clearInput(inputs) {
   inputs.forEach((input) => {
