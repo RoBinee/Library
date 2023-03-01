@@ -12,17 +12,17 @@
     <button class="add">Add Book</button>
     <h1 class="test">hello</h1>
     <!-- pop-up -->
-    <section class="popup">
+    <section class="popup show">
       <form action="submit">
         <legend>Add New Book</legend>
         <label for="title">Title:</label>
-        <input type="text" id="title" name="title" />
+        <input type="text" id="title" name="title" autocomplete="off" />
         <label for="author">Author:</label>
-        <input type="text" id="author" name="author" />
+        <input type="text" id="author" name="author" autocomplete="off" />
         <label for="pages" id="pages">Pages:</label>
-        <input type="number" id="pages" name="pages" />
-        <label for="read">Read:</label>
-        <input type="checkbox" id="read" name="read" />
+        <input type="number" id="pages" name="pages" autocomplete="off" />
+        <label for="read">Have you read it?</label>
+        <input type="checkbox" id="read" name="read" autocomplete="off" />
       </form>
     </section>
     <script src="./app.js"></script>
