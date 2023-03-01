@@ -43,13 +43,7 @@ form.addEventListener('submit', (e) => {
   addBookToLibrary(title, author, pages, read);
 
   //clear the inputs
-  inputs.forEach((input) => {
-    if (input.id === 'read') {
-      input.checked = false;
-    } else {
-      input.value = '';
-    }
-  });
+  clearInput(inputs);
 });
 
 // function
@@ -93,5 +87,15 @@ function displayAllBook() {
     card.textContent = `title: ${title}, author: ${author}, pages: ${pages}, read: ${read}`;
     //add to test box
     test.appendChild(card);
+  });
+}
+
+function clearInput(inputs) {
+  inputs.forEach((input) => {
+    if (input.id === 'read') {
+      input.checked = false;
+    } else {
+      input.value = '';
+    }
   });
 }
