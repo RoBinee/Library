@@ -1,5 +1,48 @@
+// variables
 let myLibrary = [];
 
+const test = document.querySelector('.test');
+const displayAllBtn = document.querySelector('.displayAllBooks');
+const addBtn = document.querySelector('.add');
+const form = document.querySelector('form');
+
+// eventListener
+addBtn.addEventListener('click', addBookToLibrary);
+displayAllBtn.addEventListener('click', displayAllBook);
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const inputs = e.target.querySelectorAll('input');
+  let title;
+  let author;
+  let pages;
+  let read;
+
+  inputs.forEach((input) => {
+    const inputValue = input.value;
+    const inputId = input.id;
+
+    switch (inputId) {
+      case 'title':
+        title = inputValue;
+        break;
+      case 'author':
+        author = inputValue;
+        break;
+      case 'pages':
+        pages = inputValue;
+        break;
+      case 'read':
+        read = inputValue;
+        break;
+    }
+  });
+  const testBook = new Book(title, author, pages, read);
+  console.log(testBook);
+  //using inputs, make Book obj
+});
+
+// function
 function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
@@ -27,8 +70,6 @@ function addBookToLibrary() {
   //add obj to myLibrary
   myLibrary.push(book);
 }
-const test = document.querySelector('.test');
-const displayAllBtn = document.querySelector('.displayAllBooks');
 
 function displayAllBook() {
   //as soon as add a book, display the all books
@@ -43,8 +84,3 @@ function displayAllBook() {
     test.appendChild(card);
   });
 }
-
-const addBtn = document.querySelector('.add');
-
-addBtn.addEventListener('click', addBookToLibrary);
-displayAllBtn.addEventListener('click', displayAllBook);
