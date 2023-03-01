@@ -37,9 +37,11 @@ form.addEventListener('submit', (e) => {
         break;
     }
   });
-  const testBook = new Book(title, author, pages, read);
-  console.log(testBook);
+
   //using inputs, make Book obj
+  //   const testBook = new Book(title, author, pages, read);
+  //   console.log(testBook);
+  addBookToLibrary(title, author, pages, read);
 });
 
 // function
@@ -54,21 +56,22 @@ function Book(title, author, pages, read) {
   };
 }
 
-function addBookToLibrary() {
+function addBookToLibrary(title, author, pages, read) {
   //--push book into myLibrary array--
 
   //take user input using prompt
   //  take title, author, pages, read
-  const title = prompt('title');
-  const author = prompt('author');
-  const pages = prompt('pages');
-  const read = prompt('read');
+  //   const title = prompt('title');
+  //   const author = prompt('author');
+  //   const pages = prompt('pages');
+  //   const read = prompt('read');
 
   //make input as Book obj
   const book = new Book(title, author, pages, read);
 
   //add obj to myLibrary
   myLibrary.push(book);
+  console.log(myLibrary);
 }
 
 function displayAllBook() {
