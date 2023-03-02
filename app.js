@@ -11,9 +11,13 @@ myLibrary.push(theHobbit);
 const test = document.querySelector('.test');
 const addBtn = document.querySelector('.add');
 const form = document.querySelector('form');
+const popup = document.querySelector('.popup');
 
 // eventListener
-addBtn.addEventListener('click', addBookToLibrary);
+addBtn.addEventListener('click', () => {
+  popup.classList.add('show');
+});
+
 form.addEventListener('submit', (e) => {
   e.preventDefault();
 
