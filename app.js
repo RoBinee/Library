@@ -80,9 +80,14 @@ function addBookToLibrary(title, author, pages, read) {
 
 function displayAllBook() {
   //as soon as add a book, display the all books
-  myLibrary.forEach((book) => {
-    displayEachBook(book);
-  });
+  if (myLibrary.length === 0) {
+    //myLibrary is empty
+    return;
+  } else {
+    myLibrary.forEach((book) => {
+      displayEachBook(book);
+    });
+  }
 }
 
 function displayEachBook({ title, author, pages, read }) {
