@@ -1,6 +1,13 @@
 // variables
 let myLibrary = [];
 
+// examples for test
+const harryPotter = new Book('Harry Potter', 'J. K. Rowling', 223, true);
+const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, false);
+
+myLibrary.push(harryPotter);
+myLibrary.push(theHobbit);
+
 const test = document.querySelector('.test');
 const displayAllBtn = document.querySelector('.displayAllBooks');
 const addBtn = document.querySelector('.add');
@@ -62,9 +69,14 @@ function addBookToLibrary(title, author, pages, read) {
   //make input as Book obj
   const book = new Book(title, author, pages, read);
 
+  //display that book on the screen
+  const card = document.createElement('article');
+  card.classList.add('card');
+  card.textContent = `title: ${title}, author: ${author}, pages: ${pages}, read: ${read}`;
+  test.appendChild(card);
+
   //add obj to myLibrary
   myLibrary.push(book);
-  console.log(myLibrary);
 }
 
 function displayAllBook() {
@@ -81,7 +93,9 @@ function displayAllBook() {
   });
 }
 
-function displayEachBook() {}
+function displayEachBook() {
+  //display single book
+}
 
 function clearInput(inputs) {
   inputs.forEach((input) => {
@@ -92,3 +106,5 @@ function clearInput(inputs) {
     }
   });
 }
+
+window.addEventListener('DOMContentLoaded', displayAllBook);
