@@ -17,6 +17,7 @@ const cardsContainer = document.querySelector('.cards-container');
 addBtn.addEventListener('click', () => {
   popup.classList.add('show');
 });
+window.addEventListener('DOMContentLoaded', displayAllBook);
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -48,6 +49,8 @@ form.addEventListener('submit', (e) => {
 
   //using inputs, make Book obj
   addBookToLibrary(title, author, pages, read);
+
+  //display each book
 
   //clear the inputs
   clearInput(inputs);
@@ -104,6 +107,11 @@ function displayEachBook({ title, author, pages, read }) {
     <button class="remove">Remove</button>`;
   //add to test box
   cardsContainer.appendChild(card);
+
+  //attach removeBtn addEventListener each card
+  const removeBtn = card.querySelector('.remove');
+
+  removeBtn.addEventListener('click', removeBook);
 }
 
 function clearInput(inputs) {
@@ -116,4 +124,9 @@ function clearInput(inputs) {
   });
 }
 
-window.addEventListener('DOMContentLoaded', displayAllBook);
+function removeBook(e) {
+  console.log(e.target);
+
+  //remove book from myLibrary
+  //remove card element on the screen
+}
