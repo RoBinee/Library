@@ -70,10 +70,11 @@ function addBookToLibrary(title, author, pages, read) {
   const book = new Book(title, author, pages, read);
 
   //display that book on the screen
-  const card = document.createElement('article');
-  card.classList.add('card');
-  card.textContent = `title: ${title}, author: ${author}, pages: ${pages}, read: ${read}`;
-  test.appendChild(card);
+  // const card = document.createElement('article');
+  // card.classList.add('card');
+  // card.textContent = `title: ${title}, author: ${author}, pages: ${pages}, read: ${read}`;
+  // test.appendChild(card);
+  displayEachBook(book);
 
   //add obj to myLibrary
   myLibrary.push(book);
@@ -82,6 +83,7 @@ function addBookToLibrary(title, author, pages, read) {
 function displayAllBook() {
   //as soon as add a book, display the all books
   myLibrary.forEach((book) => {
+    /*
     const { title, author, pages, read } = book;
     //make as single card
     const card = document.createElement('article');
@@ -90,11 +92,21 @@ function displayAllBook() {
     card.textContent = `title: ${title}, author: ${author}, pages: ${pages}, read: ${read}`;
     //add to test box
     test.appendChild(card);
+    */
+    displayEachBook(book);
   });
 }
 
-function displayEachBook() {
+function displayEachBook({ title, author, pages, read }) {
   //display single book
+
+  //make as single card
+  const card = document.createElement('article');
+  card.classList.add('card');
+  //write down the content into card element
+  card.textContent = `title: ${title}, author: ${author}, pages: ${pages}, read: ${read}`;
+  //add to test box
+  test.appendChild(card);
 }
 
 function clearInput(inputs) {
