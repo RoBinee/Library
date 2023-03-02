@@ -48,7 +48,14 @@ form.addEventListener('submit', (e) => {
   });
 
   //using inputs, make Book obj
-  addBookToLibrary(title, author, pages, read);
+  //make input as Book obj
+  const book = new Book(title, author, pages, read);
+
+  //add obj to myLibrary
+  myLibrary.push(book);
+
+  //display this book on the screen
+  displayEachBook(book);
 
   //display each book
 
@@ -66,19 +73,6 @@ function Book(title, author, pages, read) {
   this.info = function () {
     return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
   };
-}
-
-function addBookToLibrary(title, author, pages, read) {
-  //--push book into myLibrary array--
-
-  //make input as Book obj
-  const book = new Book(title, author, pages, read);
-
-  //add obj to myLibrary
-  myLibrary.push(book);
-
-  //display this book on the screen
-  displayEachBook(book);
 }
 
 function displayAllBook() {
