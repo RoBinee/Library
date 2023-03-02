@@ -100,7 +100,8 @@ function displayEachBook({ title, author, pages, read }) {
   card.innerHTML = `<h2 class="title">${title}</h2>
     <h3 class="author">${author}</h3>
     <p class="pages">${pages}</p>
-    <p class="read">${read}</p>`;
+    <p class="read">${read}</p>
+    <button class="remove">Remove</button>`;
   //add to test box
   cardsContainer.appendChild(card);
 }
