@@ -17,13 +17,14 @@ const cardsContainer = document.querySelector('.cards-container');
 addBtn.addEventListener('click', () => {
   popup.classList.add('show');
 });
+
 window.addEventListener('DOMContentLoaded', displayAllBook);
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
 
   const inputs = e.target.querySelectorAll('input');
-  const book = formatNewBook(inputs);
+  const book = returnNewBookObj(inputs);
 
   //add obj to myLibrary
   myLibrary.push(book);
@@ -47,7 +48,7 @@ function Book(title, author, pages, read) {
   };
 }
 
-function formatNewBook(inputs) {
+function returnNewBookObj(inputs) {
   let title;
   let author;
   let pages;
