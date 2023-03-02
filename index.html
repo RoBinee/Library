@@ -9,22 +9,49 @@
   </head>
   <body>
     <button class="add">New Book</button>
-    <h1 class="test">hello</h1>
     <!-- pop-up -->
     <section class="popup show">
       <form action="submit">
         <legend>Add New Book</legend>
         <label for="title">Title:</label>
-        <input type="text" id="title" name="title" autocomplete="off" />
+        <input
+          type="text"
+          id="title"
+          name="title"
+          autocomplete="off"
+          placeholder="title"
+        />
         <label for="author">Author:</label>
-        <input type="text" id="author" name="author" autocomplete="off" />
+        <input
+          type="text"
+          id="author"
+          name="author"
+          autocomplete="off"
+          placeholder="author"
+        />
         <label for="pages" id="pages">Pages:</label>
-        <input type="number" id="pages" name="pages" autocomplete="off" />
+        <input
+          type="number"
+          id="pages"
+          name="pages"
+          autocomplete="off"
+          placeholder="pages"
+        />
         <label for="read">Have you read it?</label>
         <input type="checkbox" id="read" name="read" autocomplete="off" />
         <button type="submit" class="btn">Submit</button>
       </form>
     </section>
+    <section class="cards-container">
+      <!-- example card -->
+      <article class="card">
+        <h2 class="title">title</h2>
+        <h3 class="author">author</h3>
+        <p class="pages">pages</p>
+        <p class="read">read</p>
+      </article>
+    </section>
+    <!-- javascript -->
     <script src="./app.js"></script>
   </body>
 </html>
