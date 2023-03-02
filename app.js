@@ -23,6 +23,31 @@ form.addEventListener('submit', (e) => {
   e.preventDefault();
 
   const inputs = e.target.querySelectorAll('input');
+  const book = formatNewBook(inputs);
+
+  //add obj to myLibrary
+  myLibrary.push(book);
+
+  //display this book on the screen
+  displayEachBook(book);
+
+  //clear the inputs
+  clearInput(inputs);
+});
+
+// function
+function Book(title, author, pages, read) {
+  this.title = title;
+  this.author = author;
+  this.pages = pages;
+  this.read = read;
+
+  this.info = function () {
+    return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
+  };
+}
+
+function formatNewBook(inputs) {
   let title;
   let author;
   let pages;
@@ -49,30 +74,7 @@ form.addEventListener('submit', (e) => {
 
   //using inputs, make Book obj
   //make input as Book obj
-  const book = new Book(title, author, pages, read);
-
-  //add obj to myLibrary
-  myLibrary.push(book);
-
-  //display this book on the screen
-  displayEachBook(book);
-
-  //display each book
-
-  //clear the inputs
-  clearInput(inputs);
-});
-
-// function
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-
-  this.info = function () {
-    return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
-  };
+  return new Book(title, author, pages, read);
 }
 
 function displayAllBook() {
