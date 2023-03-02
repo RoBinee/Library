@@ -97,7 +97,10 @@ function displayEachBook({ title, author, pages, read }) {
   const card = document.createElement('article');
   card.classList.add('card');
   //write down the content into card element
-  card.textContent = `title: ${title}, author: ${author}, pages: ${pages}, read: ${read}`;
+  card.innerHTML = `<h2 class="title">${title}</h2>
+    <h3 class="author">${author}</h3>
+    <p class="pages">${pages}</p>
+    <p class="read">${read}</p>`;
   //add to test box
   cardsContainer.appendChild(card);
 }
