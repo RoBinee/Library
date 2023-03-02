@@ -42,6 +42,7 @@ function Book(title, author, pages, read) {
   this.author = author;
   this.pages = pages;
   this.read = read;
+  this.id = getUniqueId();
 
   this.info = function () {
     return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
@@ -90,12 +91,13 @@ function displayAllBook() {
   }
 }
 
-function displayEachBook({ title, author, pages, read }) {
+function displayEachBook({ id, title, author, pages, read }) {
   //display single book
 
   //make as single card
   const card = document.createElement('article');
   card.classList.add('card');
+  card.setAttribute('id', id);
   //write down the content into card element
   card.innerHTML = `<h2 class="title">${title}</h2>
     <h3 class="author">${author}</h3>
@@ -122,8 +124,18 @@ function clearInput(inputs) {
 }
 
 function removeBook(e) {
-  console.log(e.target);
-
+  const removedElement = e.currentTarget.parentElement;
+  console.log(removedElement);
   //remove book from myLibrary
   //remove card element on the screen
+
+  //using target, get the element to be removed
+  //find the element in myLibrary variable
+  //Make myLibrary except that element
+
+  //display myLibrary again
+}
+
+function getUniqueId() {
+  return new Date().getTime() + Math.random();
 }
