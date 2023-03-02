@@ -81,6 +81,7 @@ function returnNewBookObj(inputs) {
 
 function displayAllBook() {
   //as soon as add a book, display the all books
+
   if (myLibrary.length === 0) {
     //myLibrary is empty
     return;
@@ -124,16 +125,20 @@ function clearInput(inputs) {
 }
 
 function removeBook(e) {
-  const removedElement = e.currentTarget.parentElement;
-  console.log(removedElement);
-  //remove book from myLibrary
-  //remove card element on the screen
-
   //using target, get the element to be removed
+  const removedElementId = Number(e.currentTarget.parentElement.id);
   //find the element in myLibrary variable
-  //Make myLibrary except that element
+  //delete all child and add again
+  myLibrary = myLibrary.filter((book) => {
+    if (book.id !== removedElementId) {
+      return book;
+    }
+  });
 
+  //clean the cards container
+  cardsContainer.innerHTML = ``;
   //display myLibrary again
+  displayAllBook();
 }
 
 function getUniqueId() {
