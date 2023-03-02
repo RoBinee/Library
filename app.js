@@ -8,10 +8,10 @@ const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, false);
 myLibrary.push(harryPotter);
 myLibrary.push(theHobbit);
 
-const test = document.querySelector('.test');
 const addBtn = document.querySelector('.add');
 const form = document.querySelector('form');
 const popup = document.querySelector('.popup');
+const cardsContainer = document.querySelector('.cards-container');
 
 // eventListener
 addBtn.addEventListener('click', () => {
@@ -94,7 +94,7 @@ function displayEachBook({ title, author, pages, read }) {
   //write down the content into card element
   card.textContent = `title: ${title}, author: ${author}, pages: ${pages}, read: ${read}`;
   //add to test box
-  test.appendChild(card);
+  cardsContainer.appendChild(card);
 }
 
 function clearInput(inputs) {
