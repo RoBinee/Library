@@ -104,14 +104,17 @@ function displayEachBook({ id, title, author, pages, read }) {
     <h3 class="author">${author}</h3>
     <p class="pages">${pages}</p>
     <p class="read">${read}</p>
-    <button class="remove">Remove</button>`;
+    <button class="remove">Remove</button>
+    <button class="status">${read ? 'read' : 'not read yet'}</button>`;
   //add to test box
   cardsContainer.appendChild(card);
 
   //attach removeBtn addEventListener each card
   const removeBtn = card.querySelector('.remove');
+  const statusBtn = card.querySelector('.status');
 
   removeBtn.addEventListener('click', removeBook);
+  statusBtn.addEventListener('click', ChangeStatus);
 }
 
 function clearInput(inputs) {
@@ -139,6 +142,10 @@ function removeBook(e) {
   cardsContainer.innerHTML = ``;
   //display myLibrary again
   displayAllBook();
+}
+
+function ChangeStatus(e) {
+  console.log('change read');
 }
 
 function getUniqueId() {
