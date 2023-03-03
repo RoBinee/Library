@@ -145,7 +145,27 @@ function removeBook(e) {
 }
 
 function ChangeStatus(e) {
-  console.log('change read');
+  const card = e.currentTarget.parentElement;
+  const elementId = Number(e.currentTarget.parentElement.id);
+
+  //find the element in myLibrary array
+  myLibrary.forEach((book) => {
+    if (book.id === elementId) {
+      //modify read status
+      book.read ? (book.read = false) : (book.read = true);
+    }
+  });
+
+  //display only that element again
+  //do not display whole again
+  const cardStatus = card.querySelector('.status');
+  console.log(cardStatus.textContent === 'read');
+
+  if (cardStatus.textContent === 'read') {
+    cardStatus.textContent = 'not read yet';
+  } else {
+    cardStatus.textContent = 'read';
+  }
 }
 
 function getUniqueId() {
