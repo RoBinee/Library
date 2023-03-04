@@ -17,6 +17,12 @@ const cardsContainer = document.querySelector('.cards-container');
 addBtn.addEventListener('click', () => {
   popup.classList.add('show');
 });
+const cancelBtn = document.querySelector('.cancel-btn');
+
+cancelBtn.addEventListener('click', () => {
+  popup.classList.remove('show');
+  //remove event listener for memory leak??? I don't know
+});
 
 window.addEventListener('DOMContentLoaded', displayAllBook);
 
