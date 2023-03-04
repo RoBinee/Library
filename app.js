@@ -49,7 +49,7 @@ function setBook(formSubmitted) {
   myLibrary.push(book);
 
   //display this book on the screen
-  displayEachBook(book);
+  displaySingleBook(book);
 
   //clear the inputs
   clearInput(inputs);
@@ -89,16 +89,16 @@ function displayAllBook() {
   //as soon as add a book, display the all books
 
   if (myLibrary.length === 0) {
-    //myLibrary is empty
+    //if myLibrary is empty, get out of this function
     return;
-  } else {
-    myLibrary.forEach((book) => {
-      displayEachBook(book);
-    });
   }
+
+  myLibrary.forEach((book) => {
+    displaySingleBook(book);
+  });
 }
 
-function displayEachBook({ id, title, author, pages, read }) {
+function displaySingleBook({ id, title, author, pages, read }) {
   //display single book
 
   //make as single card
@@ -106,13 +106,14 @@ function displayEachBook({ id, title, author, pages, read }) {
   card.classList.add('card');
   card.setAttribute('id', id);
   //write down the content into card element
+  //format card
   card.innerHTML = `<h2 class="title">${title}</h2>
     <h3 class="author">${author}</h3>
     <p class="pages">${pages}</p>
     <p class="read">${read}</p>
     <button class="remove">Remove</button>
     <button class="status">${read ? 'read' : 'not read yet'}</button>`;
-  //add to test box
+  //add to cardsContainer
   cardsContainer.appendChild(card);
 
   //attach removeBtn addEventListener each card
@@ -121,16 +122,6 @@ function displayEachBook({ id, title, author, pages, read }) {
 
   removeBtn.addEventListener('click', removeBook);
   statusBtn.addEventListener('click', ChangeStatus);
-}
-
-function clearInput(inputs) {
-  inputs.forEach((input) => {
-    if (input.id === 'read') {
-      input.checked = false;
-    } else {
-      input.value = '';
-    }
-  });
 }
 
 function removeBook(e) {
@@ -177,4 +168,14 @@ function ChangeStatus(e) {
 
 function getUniqueId() {
   return new Date().getTime() + Math.floor(Math.random() * 1000);
+}
+
+function clearInput(inputs) {
+  inputs.forEach((input) => {
+    if (input.id === 'read') {
+      input.checked = false;
+    } else {
+      input.value = '';
+    }
+  });
 }
