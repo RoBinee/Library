@@ -23,19 +23,7 @@ window.addEventListener('DOMContentLoaded', displayAllBook);
 form.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  const inputs = e.target.querySelectorAll('input');
-
-  //make new obj using input value
-  const book = returnNewBookObj(inputs);
-
-  //add obj to myLibrary
-  myLibrary.push(book);
-
-  //display this book on the screen
-  displayEachBook(book);
-
-  //clear the inputs
-  clearInput(inputs);
+  setBook(e.target);
 });
 
 // function
@@ -51,12 +39,29 @@ function Book(title, author, pages, read) {
   };
 }
 
+function setBook(formSubmitted) {
+  const inputs = formSubmitted.querySelectorAll('input');
+
+  //make new obj using input value
+  const book = returnNewBookObj(inputs);
+
+  //add obj to myLibrary
+  myLibrary.push(book);
+
+  //display this book on the screen
+  displayEachBook(book);
+
+  //clear the inputs
+  clearInput(inputs);
+}
+
 function returnNewBookObj(inputs) {
   let title;
   let author;
   let pages;
   let read;
 
+  //using inputs, make Book obj
   inputs.forEach((input) => {
     const inputId = input.id;
 
@@ -76,7 +81,6 @@ function returnNewBookObj(inputs) {
     }
   });
 
-  //using inputs, make Book obj
   //make input as Book obj
   return new Book(title, author, pages, read);
 }
@@ -146,6 +150,7 @@ function removeBook(e) {
   displayAllBook();
 }
 
+//make this as prototype
 function ChangeStatus(e) {
   const card = e.currentTarget.parentElement;
   const elementId = Number(e.currentTarget.parentElement.id);
