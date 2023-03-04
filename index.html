@@ -28,40 +28,48 @@
       <form action="submit">
         <header class="form-header">
           <legend>Add New Book</legend>
-          <button class="cancel">
+          <button class="cancel-btn">
             <i class="fa-solid fa-xmark"></i>
           </button>
         </header>
-        <label for="title">Title:</label>
-        <input
-          type="text"
-          id="title"
-          name="title"
-          autocomplete="off"
-          placeholder="title"
-          required
-        />
-        <label for="author">Author:</label>
-        <input
-          type="text"
-          id="author"
-          name="author"
-          autocomplete="off"
-          placeholder="author"
-          required
-        />
-        <label for="pages" id="pages">Pages:</label>
-        <input
-          type="number"
-          id="pages"
-          name="pages"
-          autocomplete="off"
-          placeholder="pages"
-          required
-        />
-        <label for="read">Have you read it?</label>
-        <input type="checkbox" id="read" name="read" autocomplete="off" />
-        <button type="submit" class="btn">Submit</button>
+        <div>
+          <label for="title">Title:</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            autocomplete="off"
+            placeholder="title"
+            required
+          />
+        </div>
+        <div>
+          <label for="author">Author:</label>
+          <input
+            type="text"
+            id="author"
+            name="author"
+            autocomplete="off"
+            placeholder="author"
+            required
+          />
+        </div>
+        <div>
+          <label for="pages" id="pages">Pages:</label>
+          <input
+            type="number"
+            id="pages"
+            name="pages"
+            autocomplete="off"
+            placeholder="pages"
+            required
+          />
+        </div>
+        <div>
+          <label for="read">Have you read it?</label>
+          <input type="checkbox" id="read" name="read" autocomplete="off" />
+        </div>
+        <button type="submit" class="submit-btn">Submit</button>
       </form>
     </section>
     <section class="cards-container">

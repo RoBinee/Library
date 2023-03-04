@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300&display=swap');
+
 :root {
   --blck-clr: #000000;
   --gry-clr: #e8e8e8;
   --white-clr: #ffffff;
+  --purple-clr: #8685ef;
+  --border-radius: 10px;
 }
 
 *,
@@ -14,13 +18,14 @@
 body {
   width: 100%;
   height: 100vh;
+  font-family: 'Roboto', sans-serif;
 }
 button {
   cursor: pointer;
   outline: none;
 }
 /* header */
-header {
+.header {
   height: 10vh;
   display: flex;
   align-items: center;
@@ -44,16 +49,91 @@ header {
   border: 3px solid var(--blck-clr);
   background: var(--white-clr);
 }
+.add:active {
+  background: var(--blck-clr);
+  color: var(--white-clr);
+}
 
 /* popup: display none && popup show: display block */
 .popup {
-  background: pink;
+  background: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
   display: none;
 }
 .popup.show {
   display: block;
 }
+/* form */
+form[action='submit'] {
+  background: var(--white-clr);
+  position: relative;
+  top: 20%;
+  left: 35%;
+  width: 30%;
+  height: 55%;
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  font-family: 'Roboto', sans-serif;
+  display: grid;
+  grid-template-rows: repeat(auto-fit, 1fr);
+  row-gap: 1rem;
+  align-items: center;
+}
 
+form[action='submit'] > div {
+  display: grid;
+  grid-template-rows: repeat(auto-fit, 1fr);
+  gap: 10px;
+}
+form[action='submit'] > div:nth-last-child(2) {
+  display: flex;
+  flex-direction: row;
+}
+.form-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.form-header > legend {
+  font-size: 1.2rem;
+}
+.cancel-btn {
+  background: transparent;
+  border-color: transparent;
+  color: var(--blck-clr);
+  font-size: 1.5rem;
+}
+label {
+  font-size: 1rem;
+}
+
+input {
+  font-size: 1rem;
+  padding: 2px;
+  border-radius: var(--border-radius);
+  border-color: transparent;
+  background: var(--gry-clr);
+}
+input::placeholder {
+  text-transform: capitalize;
+  padding-left: 5px;
+}
+
+label[for='read'] {
+  margin-right: 3px;
+}
+
+.submit-btn {
+  appearance: none;
+  background: var(--purple-clr);
+  padding: 0.5rem 0;
+  font-size: 1rem;
+  border-radius: var(--border-radius);
+}
 .card {
   border: 2px solid black;
 }
