@@ -24,6 +24,8 @@ form.addEventListener('submit', (e) => {
   e.preventDefault();
 
   const inputs = e.target.querySelectorAll('input');
+
+  //make new obj using input value
   const book = returnNewBookObj(inputs);
 
   //add obj to myLibrary
@@ -169,5 +171,5 @@ function ChangeStatus(e) {
 }
 
 function getUniqueId() {
-  return new Date().getTime() + Math.random();
+  return new Date().getTime() + Math.floor(Math.random() * 1000);
 }
