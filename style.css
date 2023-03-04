@@ -5,6 +5,7 @@
   --gry-clr: #e8e8e8;
   --white-clr: #ffffff;
   --purple-clr: #8685ef;
+  --light-purple-clr: #c6c0f8;
   --border-radius: 10px;
 }
 
@@ -133,6 +134,10 @@ label[for='read'] {
   padding: 0.5rem 0;
   font-size: 1rem;
   border-radius: var(--border-radius);
+  border-color: transparent;
+}
+.submit-btn:active {
+  background: var(--light-purple-clr);
 }
 .card {
   border: 2px solid black;
