@@ -15,12 +15,12 @@ const cardsContainer = document.querySelector('.cards-container');
 
 // eventListener
 addBtn.addEventListener('click', () => {
-  popup.classList.add('show');
+  controlFormShow();
 });
 const cancelBtn = document.querySelector('.cancel-btn');
 
 cancelBtn.addEventListener('click', () => {
-  popup.classList.remove('show');
+  controlFormShow(false);
   //remove event listener for memory leak??? I don't know
 });
 
@@ -59,6 +59,17 @@ function setBook(formSubmitted) {
 
   //clear the inputs
   clearInput(inputs);
+
+  //close form
+  controlFormShow(false);
+}
+
+function controlFormShow(show = true) {
+  if (show) {
+    popup.classList.add('show');
+  } else if (!show) {
+    popup.classList.remove('show');
+  }
 }
 
 function returnNewBookObj(inputs) {
