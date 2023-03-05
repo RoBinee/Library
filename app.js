@@ -124,12 +124,17 @@ function displaySingleBook({ id, title, author, pages, read }) {
   card.setAttribute('id', id);
   //write down the content into card element
   //format card
-  card.innerHTML = `<h2 class="title">${title}</h2>
-    <h3 class="author">${author}</h3>
-    <p class="pages">${pages}</p>
-    <p class="read">${read}</p>
-    <button class="remove">Remove</button>
-    <button class="status">${read ? 'read' : 'not read yet'}</button>`;
+  card.innerHTML = `<button class="remove">
+  <i class="fa-solid fa-xmark"></i>
+  </button>
+  <h2 class="book-title">${title}</h2>
+  <h3 class="author">${author}</h3>
+  <p class="pages">${pages}</p>
+  ${
+    read
+      ? `<button class="status read">read</button>`
+      : `<button class="status">not read yet</button>`
+  }`;
   //add to cardsContainer
   cardsContainer.appendChild(card);
 
@@ -162,7 +167,6 @@ function removeBook(e) {
 function ChangeStatus(e) {
   const card = e.currentTarget.parentElement;
   const elementId = Number(e.currentTarget.parentElement.id);
-
   //find the element in myLibrary array
   myLibrary.forEach((book) => {
     if (book.id === elementId) {
@@ -174,7 +178,8 @@ function ChangeStatus(e) {
   //display only that element again
   //do not display whole again
   const cardStatus = card.querySelector('.status');
-  console.log(cardStatus.textContent === 'read');
+
+  cardStatus.classList.toggle('read');
 
   if (cardStatus.textContent === 'read') {
     cardStatus.textContent = 'not read yet';
