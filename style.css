@@ -5,6 +5,8 @@
   --gry-clr: #e8e8e8;
   --white-clr: #ffffff;
   --purple-clr: #8685ef;
+  --dark-green-clr: #6a8e82;
+  --dark-gray-clr: #686868;
   --light-purple-clr: #c6c0f8;
   --border-radius: 10px;
 }
@@ -139,6 +141,55 @@ label[for='read'] {
 .submit-btn:active {
   background: var(--light-purple-clr);
 }
+
+/* cards-container */
+main {
+  background: var(--gry-clr);
+  width: 100%;
+  min-height: 90vh;
+  overflow: scroll;
+  display: flex;
+  justify-content: center;
+}
+.cards-container {
+  width: 80%;
+  background: transparent;
+  display: grid;
+  grid-template-columns: repeat(4, 20%);
+  grid-template-rows: repeat(2, 30%);
+  grid-auto-rows: 30%;
+  gap: 5%;
+  justify-content: space-between;
+  margin-top: 3%;
+}
+/* card */
 .card {
-  border: 2px solid black;
+  background: var(--white-clr);
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+  text-align: center;
+  display: grid;
+  grid-template-rows: repeat(auto-fill, 1fr);
+}
+.remove {
+  background: transparent;
+  font-size: 1.3rem;
+  padding: 3px 5px;
+  border-color: transparent;
+}
+.book-title {
+  text-transform: capitalize;
+}
+.author {
+  text-transform: capitalize;
+}
+.pages::after {
+  content: ' pages';
+}
+.status {
+  text-transform: uppercase;
+  background: var(--dark-gray-clr);
+  border-color: transparent;
+}
+.read {
+  background: var(--dark-green-clr);
 }
