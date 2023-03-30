@@ -164,7 +164,7 @@ function removeBook(e) {
 }
 
 //make this as prototype
-function ChangeStatus(e) {
+function changeStatus(e) {
   const card = e.currentTarget.parentElement;
   const elementId = Number(e.currentTarget.parentElement.id);
   //find the element in myLibrary array
