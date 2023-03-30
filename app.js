@@ -1,6 +1,19 @@
 // variables
 let myLibrary = [];
 
+//class constructor
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+    this.id = getUniqueId();
+  }
+  info = function () {
+    return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
+  };
+}
 // examples for test
 const harryPotter = new Book('Harry Potter', 'J. K. Rowling', 223, true);
 const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, false);
@@ -31,19 +44,6 @@ form.addEventListener('submit', (e) => {
 
   setBook(e.target);
 });
-
-// function
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-  this.id = getUniqueId();
-
-  this.info = function () {
-    return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
-  };
-}
 
 function setBook(formSubmitted) {
   const inputs = formSubmitted.querySelectorAll('input');
@@ -143,7 +143,7 @@ function displaySingleBook({ id, title, author, pages, read }) {
   const statusBtn = card.querySelector('.status');
 
   removeBtn.addEventListener('click', removeBook);
-  statusBtn.addEventListener('click', ChangeStatus);
+  statusBtn.addEventListener('click', changeStatus);
 }
 
 function removeBook(e) {
