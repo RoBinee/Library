@@ -33,6 +33,8 @@ addBtn.addEventListener('click', () => {
 const cancelBtn = document.querySelector('.cancel-btn');
 
 cancelBtn.addEventListener('click', () => {
+  const inputs = [...document.querySelectorAll('input')];
+  clearInput(inputs);
   controlFormShow(false);
   //remove event listener for memory leak??? I don't know
 });
@@ -48,20 +50,10 @@ form.addEventListener('input', (e) => {
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   //check form validation and add book
-  const inputs = document.querySelectorAll('input');
-  let count = 0;
-  inputs.forEach((input) => {
-    if (input.checkValidity()) {
-      count++;
-    }
-  });
-  if (count === inputs.length) {
-    setBook(e.target);
-  } else {
-    inputs.forEach((input) => {
-      input.reportValidity();
-    });
-  }
+  //check all inputs
+  //if one of inputs are not valid -> report message here
+  checkformValidity(e);
+  // setBook(e.target);
 });
 
 function checkDataValidity(e) {
@@ -73,6 +65,22 @@ function checkDataValidity(e) {
   } else if (input.validity.valid && error) {
     //if input is valid remove error msg
     error.textContent = '';
+  }
+}
+function checkformValidity(e) {
+  const inputs = [...document.querySelectorAll('input')];
+  let invalidInputs = inputs.filter((input) => {
+    if (!input.validity.valid) {
+      return input;
+    }
+  });
+
+  if (invalidInputs.length === 0) {
+    setBook(e.currentTarget);
+  } else {
+    invalidInputs.forEach((input) => {
+      input.reportValidity();
+    });
   }
 }
 
