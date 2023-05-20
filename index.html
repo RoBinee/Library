@@ -32,8 +32,8 @@
             <i class="fa-solid fa-xmark"></i>
           </button>
         </header>
-        <div>
-          <label for="title">Title:</label>
+        <label for="title">
+          <span>Title: </span>
           <input
             type="text"
             id="title"
@@ -42,9 +42,9 @@
             placeholder="title"
             required
           />
-        </div>
-        <div>
-          <label for="author">Author:</label>
+        </label>
+        <label for="author">
+          <span>Author:</span>
           <input
             type="text"
             id="author"
@@ -53,9 +53,9 @@
             placeholder="author"
             required
           />
-        </div>
-        <div>
-          <label for="pages" id="pages">Pages:</label>
+        </label>
+        <label for="pages" id="pages">
+          <span> Pages : </span>
           <input
             type="number"
             id="pages"
@@ -64,11 +64,11 @@
             placeholder="pages"
             required
           />
-        </div>
-        <div>
-          <label for="read">Have you read it?</label>
+        </label>
+        <label for="read">
+          <span> Have you read it? </span>
           <input type="checkbox" id="read" name="read" autocomplete="off" />
-        </div>
+        </label>
         <button type="submit" class="submit-btn">Submit</button>
       </form>
     </section>
