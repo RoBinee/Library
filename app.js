@@ -39,11 +39,42 @@ cancelBtn.addEventListener('click', () => {
 
 window.addEventListener('DOMContentLoaded', displayAllBook);
 
+form.addEventListener('input', (e) => {
+  //each time the user type something, we check if the form field is valid
+  //check the input the user is typing
+  checkDataValidity(e);
+});
+
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-
-  setBook(e.target);
+  //check form validation and add book
+  const inputs = document.querySelectorAll('input');
+  let count = 0;
+  inputs.forEach((input) => {
+    if (input.checkValidity()) {
+      count++;
+    }
+  });
+  if (count === inputs.length) {
+    setBook(e.target);
+  } else {
+    inputs.forEach((input) => {
+      input.reportValidity();
+    });
+  }
 });
+
+function checkDataValidity(e) {
+  const input = e.target;
+  const error = input.nextElementSibling;
+  if (!input.validity.valid) {
+    //if input is invalid, display error msg
+    error.textContent = input.validationMessage;
+  } else if (input.validity.valid && error) {
+    //if input is valid remove error msg
+    error.textContent = '';
+  }
+}
 
 function setBook(formSubmitted) {
   const inputs = formSubmitted.querySelectorAll('input');
