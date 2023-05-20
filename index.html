@@ -25,50 +25,62 @@
     </header>
     <!-- pop-up -->
     <section class="popup">
-      <form action="submit">
+      <form action="submit" novalidate>
         <header class="form-header">
           <legend>Add New Book</legend>
           <button class="cancel-btn">
             <i class="fa-solid fa-xmark"></i>
           </button>
         </header>
-        <label for="title">
-          <span>Title: </span>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            autocomplete="off"
-            placeholder="title"
-            required
-          />
-        </label>
-        <label for="author">
-          <span>Author:</span>
-          <input
-            type="text"
-            id="author"
-            name="author"
-            autocomplete="off"
-            placeholder="author"
-            required
-          />
-        </label>
-        <label for="pages" id="pages">
-          <span> Pages : </span>
-          <input
-            type="number"
-            id="pages"
-            name="pages"
-            autocomplete="off"
-            placeholder="pages"
-            required
-          />
-        </label>
-        <label for="read">
-          <span> Have you read it? </span>
-          <input type="checkbox" id="read" name="read" autocomplete="off" />
-        </label>
+        <div class="form-content">
+          <!-- single label start -->
+          <label for="title">
+            <span class="label-name">Title: </span>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              autocomplete="off"
+              placeholder="title"
+              required
+              minlength="2"
+              maxlength="15"
+            />
+            <span class="error"></span>
+          </label>
+          <!-- single label end -->
+          <label for="author">
+            <span>Author:</span>
+            <input
+              type="text"
+              id="author"
+              name="author"
+              autocomplete="off"
+              placeholder="author"
+              required
+              minlength="5"
+              maxlength="20"
+            />
+            <span class="error"></span>
+          </label>
+          <label for="pages">
+            <span> Pages : </span>
+            <input
+              type="number"
+              id="pages"
+              name="pages"
+              autocomplete="off"
+              placeholder="pages"
+              required
+              min="5"
+            />
+            <span class="error"></span>
+          </label>
+          <label for="read">
+            <span> Have you read it? </span>
+            <input type="checkbox" id="read" name="read" autocomplete="off" />
+          </label>
+        </div>
         <button type="submit" class="submit-btn">Submit</button>
       </form>
     </section>
