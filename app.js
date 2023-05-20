@@ -21,7 +21,7 @@ const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, false);
 myLibrary.push(harryPotter);
 myLibrary.push(theHobbit);
 
-const addBtn = document.querySelector('.add');
+const addBtn = document.querySelector('.add-btn');
 const form = document.querySelector('form');
 const popup = document.querySelector('.popup');
 const cardsContainer = document.querySelector('.cards-container');
